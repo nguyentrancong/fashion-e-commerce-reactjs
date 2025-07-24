@@ -1,3 +1,4 @@
+import Button from '@components/Button/Button';
 import Footer from '@components/Footer/Footer';
 import Header from '@components/Header/header';
 import MainLayout from '@components/Layout/Layout';
@@ -8,7 +9,7 @@ function App() {
     <>
       <MainLayout>
         <Header />
-        content
+        <Button />
         <Footer />
       </MainLayout>
     </>

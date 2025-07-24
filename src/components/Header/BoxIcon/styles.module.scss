@@ -1,0 +1,10 @@
+@import '@styles/mixin.module.scss';
+@import '@styles/variable.module.scss';
+
+.boxIcon {
+  width: 30px;
+  height: 30px;
+  @include radius_common(50%);
+  background-color: $primary_color;
+  @include flex_box_custom(center, center, 0px);
+}
