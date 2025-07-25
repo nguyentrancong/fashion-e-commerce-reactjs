@@ -1,11 +1,7 @@
-import styles from './styles.module.scss';
+import styles from './button.module.scss';
 
-function Button() {
-  return (
-    <div>
-      <button className={styles.btn}>click me</button>
-    </div>
-  );
+function Button({ content }) {
+  return <button className={styles.btn}>{content}</button>;
 }
 
 export default Button;
