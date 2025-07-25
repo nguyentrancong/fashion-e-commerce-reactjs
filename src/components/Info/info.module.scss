@@ -1,0 +1,9 @@
+@import '@styles/variable.module.scss';
+@import '@styles/mixin.module.scss';
+.container {
+  @include flex_box_custom(space-between, center, 0px);
+  //   height: 144px;
+  background-color: $primary_color;
+  margin-top: -75px;
+  padding: 50px 50px;
+}
