@@ -10,6 +10,7 @@ function Info() {
         {dataInfo.map((item) => {
           return (
             <CardInfo
+              key={item.title}
               title={item.title}
               des={item.description}
               src={item.src}
