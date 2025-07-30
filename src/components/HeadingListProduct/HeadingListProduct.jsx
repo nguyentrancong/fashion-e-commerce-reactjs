@@ -4,14 +4,23 @@ import styles from './headingListProduct.module.scss';
 import CountdownBanner from '@components/CountdownBanner/CountdownBanner';
 import ProductItem from '@components/ProductItem/ProductItem';
 
-function HeadingListProduct() {
+function HeadingListProduct({ products }) {
   return (
     <MainLayout>
       <div className={styles.container}>
         <CountdownBanner />
         <div className={styles.itemsLeft}>
-          <ProductItem key={1} />
-          <ProductItem key={2} />
+          {products.slice(0, 2).map((item) => {
+            return (
+              <ProductItem
+                key={item._id}
+                name={item.name}
+                price={item.price}
+                src={item.images[0]}
+                prevSrc={item.images[1]}
+              />
+            );
+          })}
         </div>
       </div>
     </MainLayout>
