@@ -1,0 +1,65 @@
+@import '@styles/mixin.module.scss';
+@import '@styles/variable.module.scss';
+
+.container {
+  @include flex_box_custom(center, center, 20px);
+  flex-direction: column;
+  margin-top: 40px;
+  background-color: $bg_36;
+  color: $white_color;
+  padding: 40px 0px;
+
+  //logo
+  .logo {
+    @include flex_box_custom(center, center, 0px);
+    flex-direction: column;
+
+    .title {
+      font-size: 40px;
+      font-weight: 400;
+    }
+    .subTitle {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  //page
+  .pageLink {
+    @include flex_box_custom(center, center, 20px);
+    margin-top: 1px;
+
+    .labelPage {
+      font-size: 16px;
+      font-weight: 300;
+
+      cursor: pointer;
+
+      &:hover {
+        color: $secondary_color;
+      }
+    }
+  }
+
+  //Guaranteed
+  .guaranteed {
+    @include flex_box_custom(center, center, 10px);
+    flex-direction: column;
+    margin-top: 20px;
+
+    .titleGuaranteed {
+      font-size: 16px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .boxCard {
+      @include flex_box_custom(center, center, 10px);
+    }
+  }
+
+  //copyright
+  .copyright {
+    margin-top: 20px;
+  }
+}
