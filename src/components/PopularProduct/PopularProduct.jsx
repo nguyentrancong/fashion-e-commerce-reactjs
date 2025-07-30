@@ -6,7 +6,7 @@ function PopularProduct({ products }) {
   return (
     <MainLayout>
       <div className={styles.container}>
-        {products.slice(2, products.length).map((item) => {
+        {products.slice(2, 14).map((item) => {
           return (
             <ProductItem
               key={item._id}
