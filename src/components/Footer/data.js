@@ -5,5 +5,5 @@ export const footerMenu = [
   { id: 4, content: 'Blog', href: '' },
   { id: 5, content: 'About Us', href: '' },
   { id: 6, content: 'Contact Us', href: '' },
-  { id: 6, content: 'Compare', href: '' },
+  { id: 7, content: 'Compare', href: '' },
 ];
