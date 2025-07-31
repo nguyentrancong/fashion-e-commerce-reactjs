@@ -7,11 +7,13 @@ import cartIcon from '@icons/svgs/cart.svg';
 import reloadIcon from '@icons/svgs/reload.svg';
 import Menu from './Menu/Menu';
 import useScrollHandling from '@hooks/useScrollHanding';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { SideBarContext } from '@contexts/SideBarProvider';
 
 function Header() {
   const { scrollPosition } = useScrollHandling();
+  const { setOpen } = useContext(SideBarContext);
 
   const [isFixed, setFixed] = useState(false);
 
@@ -44,7 +46,7 @@ function Header() {
                 <Menu
                   key={item.content}
                   content={item.content}
-                  href={item.href}
+                  onPress={setOpen}
                 />
               );
             })}
@@ -58,7 +60,7 @@ function Header() {
                 <Menu
                   key={item.content}
                   content={item.content}
-                  href={item.href}
+                  onPress={setOpen}
                 />
               );
             })}
