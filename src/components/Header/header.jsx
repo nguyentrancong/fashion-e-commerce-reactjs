@@ -6,10 +6,29 @@ import heartIcon from '@icons/svgs/heart.svg';
 import cartIcon from '@icons/svgs/cart.svg';
 import reloadIcon from '@icons/svgs/reload.svg';
 import Menu from './Menu/Menu';
+import useScrollHandling from '@hooks/useScrollHanding';
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
 
 function Header() {
+  const { scrollPosition } = useScrollHandling();
+
+  const [isFixed, setFixed] = useState(false);
+
+  useEffect(() => {
+    if (scrollPosition > 80) {
+      setFixed(true);
+    } else {
+      setFixed(false);
+    }
+  }, [scrollPosition]);
+
   return (
-    <div className={styles.container}>
+    <div
+      className={classNames(styles.container, styles.top, {
+        [styles.fixed]: isFixed,
+      })}
+    >
       <div className={styles.containerHeader}>
         <div className={styles.containerRight}>
           <div className={styles.containerBoxIcon}>
