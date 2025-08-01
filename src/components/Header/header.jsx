@@ -1,10 +1,9 @@
 import BoxIcon from './BoxIcon/BoxIcon';
 import { dataBoxIcon, dataMenu } from './constanst';
 import styles from './style.module.scss';
-
-import heartIcon from '@icons/svgs/heart.svg';
-import cartIcon from '@icons/svgs/cart.svg';
-import reloadIcon from '@icons/svgs/reload.svg';
+import { TfiReload } from 'react-icons/tfi';
+import { FaRegHeart } from 'react-icons/fa';
+import { BsCart3 } from 'react-icons/bs';
 import Menu from './Menu/Menu';
 import useScrollHandling from '@hooks/useScrollHanding';
 import { useContext, useEffect, useState } from 'react';
@@ -13,9 +12,14 @@ import { SideBarContext } from '@contexts/SideBarProvider';
 
 function Header() {
   const { scrollPosition } = useScrollHandling();
-  const { setOpen } = useContext(SideBarContext);
+  const { setOpen, setType } = useContext(SideBarContext);
 
   const [isFixed, setFixed] = useState(false);
+
+  const handleOpenSideBar = (type) => {
+    setOpen(true);
+    setType(type);
+  };
 
   useEffect(() => {
     if (scrollPosition > 80) {
@@ -47,6 +51,7 @@ function Header() {
                   key={item.content}
                   content={item.content}
                   onPress={setOpen}
+                  onTypeChange={setType}
                 />
               );
             })}
@@ -61,14 +66,30 @@ function Header() {
                   key={item.content}
                   content={item.content}
                   onPress={setOpen}
+                  onTypeChange={setType}
                 />
               );
             })}
           </div>
           <div className={styles.containerBoxIcon}>
-            <img src={reloadIcon} alt='reloadIcon' height={26} width={26} />
-            <img src={heartIcon} alt='heart' height={26} width={26} />
-            <img src={cartIcon} alt='Cart' height={26} width={26} />
+            <TfiReload
+              style={{ fontSize: '16px' }}
+              onClick={() => {
+                handleOpenSideBar('compare');
+              }}
+            />
+            <FaRegHeart
+              style={{ fontSize: '16px' }}
+              onClick={() => {
+                handleOpenSideBar('wishlist');
+              }}
+            />
+            <BsCart3
+              style={{ fontSize: '16px' }}
+              onClick={() => {
+                handleOpenSideBar('cart');
+              }}
+            />
           </div>
         </div>
       </div>

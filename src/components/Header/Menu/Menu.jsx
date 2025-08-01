@@ -1,15 +1,14 @@
 import styles from './menu.module.scss';
 
-function Menu({ content, onPress }) {
+function Menu({ content, onPress, onTypeChange }) {
+  const handlePress = () => {
+    if (typeof onPress === 'function' && content === 'Sign in') {
+      onPress(true);
+      onTypeChange('login');
+    }
+  };
   return (
-    <div
-      className={styles.menu}
-      onClick={() => {
-        if (typeof onPress === 'function') {
-          onPress(true);
-        }
-      }}
-    >
+    <div className={styles.menu} onClick={handlePress}>
       {content}
     </div>
   );
