@@ -1,0 +1,25 @@
+@import '@styles/variable.module.scss';
+@import '@styles/mixin.module.scss';
+
+.container {
+  @include flex_box_custom(center, center, 25px);
+  flex-direction: column;
+  padding: 40px;
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: $thr_color;
+  }
+
+  .label {
+    color: $thr_color;
+    font-size: 14px;
+  }
+
+  .remember {
+    @include flex_box_custom(flex-start, center, 10px);
+    width: 100%;
+  }
+}

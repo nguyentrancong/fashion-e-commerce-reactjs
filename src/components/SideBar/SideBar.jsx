@@ -3,6 +3,7 @@ import styles from './sideBar.module.scss';
 import { SideBarContext } from '@contexts/SideBarProvider';
 import classNames from 'classnames';
 import { TfiClose } from 'react-icons/tfi';
+import Login from './Login/Login';
 
 function SideBar() {
   const { isOpen, setOpen } = useContext(SideBarContext);
@@ -27,7 +28,7 @@ function SideBar() {
             <TfiClose />
           </div>
         )}
-        SideBar
+        <Login />
       </div>
     </div>
   );
