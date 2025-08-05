@@ -2,10 +2,10 @@ import Button from '@components/Button/Button';
 import EmptyItem from '../components/EmptyItem/EmptyItem';
 import HeaderSideBar from '../components/HeaderSideBar/HeaderSideBar';
 import ItemProduct from '../components/ItemProduct/ItemProduct';
-import styles from './compare.module.scss';
-import { TfiReload } from 'react-icons/tfi';
+import styles from './wishList.module.scss';
+import { FaRegHeart } from 'react-icons/fa';
 
-function Compare() {
+function WishList() {
   const shouldItem = true;
 
   const handleRenderContents = () => {
@@ -13,15 +13,15 @@ function Compare() {
       <div className={styles.container}>
         <div className={styles.content}>
           <HeaderSideBar
-            icon={<TfiReload style={{ fontSize: '25px' }} />}
-            title={'COMPARE'}
+            icon={<FaRegHeart style={{ fontSize: '25px' }} />}
+            title={'WISHLIST'}
           />
-
           <ItemProduct />
         </div>
 
         <div className={styles.button}>
-          <Button content={'VIEW COMPARE'} isPrimary={false} />
+          <Button content={'VIEW WISHLIST'} isPrimary={false} />
+          <Button content={'ADD ALL TO CART'} />
         </div>
       </div>
     );
@@ -37,9 +37,9 @@ function Compare() {
         handleRenderContents()
       ) : (
         <EmptyItem
-          icon={<TfiReload style={{ fontSize: '25px' }} />}
-          title={'COMPARE'}
-          description={'No products in the compare.'}
+          icon={<FaRegHeart style={{ fontSize: '25px' }} />}
+          title={'WISHLIST'}
+          description={'No products in the wish list.'}
           onPress={handleReturnToShop}
         />
       )}
@@ -47,4 +47,4 @@ function Compare() {
   );
 }
 
-export default Compare;
+export default WishList;

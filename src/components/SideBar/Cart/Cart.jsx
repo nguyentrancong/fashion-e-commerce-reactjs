@@ -1,11 +1,11 @@
+import styles from './cart.module.scss';
 import Button from '@components/Button/Button';
 import EmptyItem from '../components/EmptyItem/EmptyItem';
 import HeaderSideBar from '../components/HeaderSideBar/HeaderSideBar';
 import ItemProduct from '../components/ItemProduct/ItemProduct';
-import styles from './compare.module.scss';
-import { TfiReload } from 'react-icons/tfi';
+import { BsCart3 } from 'react-icons/bs';
 
-function Compare() {
+function Cart() {
   const shouldItem = true;
 
   const handleRenderContents = () => {
@@ -13,15 +13,19 @@ function Compare() {
       <div className={styles.container}>
         <div className={styles.content}>
           <HeaderSideBar
-            icon={<TfiReload style={{ fontSize: '25px' }} />}
-            title={'COMPARE'}
+            icon={<BsCart3 style={{ fontSize: '25px' }} />}
+            title={'CART'}
           />
-
           <ItemProduct />
         </div>
 
-        <div className={styles.button}>
-          <Button content={'VIEW COMPARE'} isPrimary={false} />
+        <div className={styles.bottomView}>
+          <div className={styles.subtotal}>
+            <div className={styles.labelSubtotal}>Subtotal:</div>
+            <div className={styles.valueSubtotal}>{'$99.99'}</div>
+          </div>
+          <Button content={'VIEW CART'} isPrimary={false} />
+          <Button content={'CHECKOUT'} />
         </div>
       </div>
     );
@@ -37,9 +41,9 @@ function Compare() {
         handleRenderContents()
       ) : (
         <EmptyItem
-          icon={<TfiReload style={{ fontSize: '25px' }} />}
-          title={'COMPARE'}
-          description={'No products in the compare.'}
+          icon={<BsCart3 style={{ fontSize: '25px' }} />}
+          title={'CART'}
+          description={'No products in the cart.'}
           onPress={handleReturnToShop}
         />
       )}
@@ -47,4 +51,4 @@ function Compare() {
   );
 }
 
-export default Compare;
+export default Cart;

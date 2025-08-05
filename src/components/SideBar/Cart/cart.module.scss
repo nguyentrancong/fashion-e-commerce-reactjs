@@ -14,8 +14,23 @@
     padding: 20px;
     width: 90%;
   }
-  .button {
-    width: 180px;
-    margin: 20px;
+  .bottomView {
+    @include flex_box_custom(center, center, 10px);
+    flex-direction: column;
+    padding: 20px;
+    width: 90%;
+
+    .subtotal {
+      @include flex_box_custom(center, space-between, 20px);
+      width: 100%;
+
+      .labelSubtotal {
+        text-align: left;
+        width: 100%;
+      }
+      .valueSubtotal {
+        text-align: right;
+      }
+    }
   }
 }
